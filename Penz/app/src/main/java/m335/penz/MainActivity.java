@@ -21,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+<<<<<<< Updated upstream
+=======
+    }
+    private void openActivityCreatePendenz(){
+        Intent intent = new Intent(this, )
+>>>>>>> Stashed changes
     }
    /* private void openActivityCreatePendenz(){
         Intent intent = new Intent(this, )
