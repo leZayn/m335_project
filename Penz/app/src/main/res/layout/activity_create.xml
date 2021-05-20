@@ -10,13 +10,16 @@
         android:id="@+id/textField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/label_title">
+        android:hint="@string/label_title"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="130dp">
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="342dp"
-        android:layout_height="36dp"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="179dp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="123dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
