@@ -21,6 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/img_smiley"
         android:layout_width="197dp"
         android:layout_height="217dp"
         android:layout_marginStart="107dp"
