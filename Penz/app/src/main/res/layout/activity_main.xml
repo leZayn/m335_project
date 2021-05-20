@@ -5,13 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        app:srcCompat="@drawable/outline_add_black_24dp"
-        tools:layout_editor_absoluteX="322dp"
-        tools:layout_editor_absoluteY="645dp" />
+        android:text="Keine Pendenzen"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.591" />
+    <ImageView
+        android:layout_width="197dp"
+        android:layout_height="217dp"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="107dp"
+        android:alpha="0.4"
+        android:src="@drawable/smiley"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
