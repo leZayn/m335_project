@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Penzi</string>
+    <string name="label_title">Titel</string>
 </resources>
