@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="high">Hoch</string>
+    <string name="standard">Normal</string>
+    <string name="low">Nieddrig</string>
+</resources>
