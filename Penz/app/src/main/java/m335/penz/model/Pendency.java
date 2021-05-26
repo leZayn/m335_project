@@ -5,6 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -18,7 +19,7 @@ public class Pendency implements Comparable{
     private String description;
 
     @ColumnInfo(name="completion_date")
-    private Date completionDate;
+    private LocalDate completionDate;
 
     private int priority;
 
@@ -48,11 +49,11 @@ public class Pendency implements Comparable{
         this.description = description;
     }
 
-    public Date getCompletionDate() {
+    public LocalDate getCompletionDate() {
         return completionDate;
     }
 
-    public void setCompletionDate(Date completionDate) {
+    public void setCompletionDate(LocalDate completionDate) {
         this.completionDate = completionDate;
     }
 
@@ -67,7 +68,7 @@ public class Pendency implements Comparable{
     @Override
     public int compareTo(Object o) {
         Pendency other = (Pendency) o;
-        if(this.priority > other.priority || (this.priority == other.priority && this.completionDate.before(other.completionDate))){
+        if(this.priority > other.priority || (this.priority == other.priority && this.completionDate.isBefore(other.completionDate))){
             return 1;
         }else if (this.priority == this.priority && this.completionDate == other.completionDate){
             return 0;

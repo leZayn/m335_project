@@ -13,4 +13,5 @@
     <color name="high_priority">#FA9796</color>
     <color name="standard_priority">#FDF695</color>
     <color name="low_priority">#91FFB8</color>
+    <color name="error">#FF0000</color>
 </resources>

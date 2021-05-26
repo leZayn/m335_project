@@ -14,7 +14,7 @@ import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import m335.penz.model.Pendency;
 
-@Database(entities = {Pendency.class}, version = 2)
+@Database(entities = {Pendency.class}, version = 3)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
