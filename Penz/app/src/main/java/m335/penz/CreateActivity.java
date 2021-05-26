@@ -16,7 +16,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import m335.penz.model.Pendency;
 import m335.penz.persistence.AppDatabase;
@@ -62,14 +66,16 @@ public class CreateActivity extends AppCompatActivity {
                             .setTitleText("Select date")
                             .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
                             .build();
-            datePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
-                @Override
-                public void onPositiveButtonClick(Object selection) {
-                    textInputEditTextCalendar.setText(datePicker.getHeaderText());
-                }
-            });
+            datePicker.addOnPositiveButtonClickListener(selection -> textInputEditTextCalendar.setText(formatHeaderTextToDate(datePicker.getHeaderText()).toString()));
             datePicker.show(getSupportFragmentManager(), "tag");
         });
+    }
+
+    private LocalDate formatHeaderTextToDate(String headerText){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
+        LocalDate localDate = LocalDate.parse(headerText, formatter);
+        System.out.println(localDate);
+        return localDate;
     }
 
     private void setupSaveButton(){
