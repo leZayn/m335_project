@@ -25,7 +25,7 @@ public class CreateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
-        textInputEditText = findViewById(R.id.outlinedTextInputLayout_date_wrap);
+        textInputEditText = findViewById(R.id.btn_datePicker);
         textInputEditText.setInputType(InputType.TYPE_NULL);
         textInputEditText.setOnClickListener(new View.OnClickListener() {
             @Override
