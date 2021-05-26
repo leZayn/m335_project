@@ -6,4 +6,7 @@
     <string name="label_date">dd.mm.yyyy</string>
     <string name="title_date">Erledigungsdatum</string>
     <string name="helpertext_lettercount">"? / ?"</string>
+    <string name="high">Hoch</string>
+    <string name="standard">Normal</string>
+    <string name="low">Niedrig</string>
 </resources>
