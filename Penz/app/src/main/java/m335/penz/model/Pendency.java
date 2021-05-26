@@ -6,9 +6,10 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
-public class Pendency {
+public class Pendency implements Comparable{
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -19,7 +20,9 @@ public class Pendency {
     @ColumnInfo(name="completion_date")
     private Date completionDate;
 
-    private String priority;
+    private int priority;
+
+
 
     public int getId() {
         return id;
@@ -53,11 +56,23 @@ public class Pendency {
         this.completionDate = completionDate;
     }
 
-    public String getPriority() {
+    public int getPriority() {
         return priority;
     }
 
-    public void setPriority(String priority) {
+    public void setPriority(int priority) {
         this.priority = priority;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Pendency other = (Pendency) o;
+        if(this.priority > other.priority || (this.priority == other.priority && this.completionDate.before(other.completionDate))){
+            return 1;
+        }else if (this.priority == this.priority && this.completionDate == other.completionDate){
+            return 0;
+        }else{
+            return -1;
+        }
     }
 }

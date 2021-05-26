@@ -47,9 +47,5 @@ public class CreateActivity extends AppCompatActivity {
             datePicker.show(getSupportFragmentManager(), "tag");
             System.out.println("--------------- CLICK2 ---------------");
         });
-
-        List<String> items = Arrays.asList("Option 1", "Option 2", "Option 3", "Option 4");
-        ArrayAdapter adapter = ArrayAdapter(requireContext(), R.layout.activity_create, items);
-        (textInputLayout.getEditText() as? AutoCompleteTextView)?.setAdapter(adapter)
     }
 }
