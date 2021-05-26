@@ -8,10 +8,12 @@
     <string name="title_priority">Priorität</string>
     <string name="helpertext_lettercount">"? / ?"</string>
     <string name="label_priority">Priorität</string>
-    <string name="priority_low">Niedrig</string>
-    <string name="priority_normal">Normal</string>
-    <string name="priority_high">Hoch</string>
     <string name="high">Hoch</string>
     <string name="standard">Normal</string>
     <string name="low">Niedrig</string>
+    <string-array name="priorities">
+        <item>Niedrig</item>
+        <item>Normal</item>
+        <item>Hoch</item>
+    </string-array>
 </resources>

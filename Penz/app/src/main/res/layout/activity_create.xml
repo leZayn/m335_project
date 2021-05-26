@@ -96,34 +96,36 @@
         app:layout_constraintTop_toBottomOf="@+id/tF_datePicker" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/menu"
+        android:id="@+id/tF_menu"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="293dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:hint="@string/label_priority"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tV_priorität">
 
         <AutoCompleteTextView
-            android:id="@+id/tF_prio_menu"
+            android:id="@+id/tV_prio_menu"
             android:layout_width="293dp"
             android:layout_height="match_parent"
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
-            android:inputType="none" />
+            android:inputType="none"
+            android:text="Normal"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
         android:clickable="true"
-        app:srcCompat="?android:attr/textCheckMark"
-        tools:layout_editor_absoluteX="317dp"
-        tools:layout_editor_absoluteY="625dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="?android:attr/textCheckMark" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

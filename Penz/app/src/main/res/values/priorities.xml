@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="high">Hoch</string>
-    <string name="standard">Normal</string>
-    <string name="low">Niedrig</string>
     <integer name="high">3</integer>
     <integer name="standard">2</integer>
     <integer name="low">1</integer>
-
 </resources>
