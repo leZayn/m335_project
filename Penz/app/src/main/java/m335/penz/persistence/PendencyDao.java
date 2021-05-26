@@ -1,5 +1,6 @@
 package m335.penz.persistence;
 
+import androidx.annotation.Nullable;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;

@@ -13,6 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 import m335.penz.model.Pendency;
+import m335.penz.persistence.AppDatabase;
 import m335.penz.persistence.PendencyDao;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        pendencyDao = AppDatabase.getAppDb(getApplicationContext()).getPendencyDao();
         findItems();
         printPendencies();
         createButton.setOnClickListener(new View.OnClickListener() {

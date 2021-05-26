@@ -16,7 +16,7 @@ import m335.penz.persistence.PendencyDao;
 
 public class CreateActivity extends AppCompatActivity {
 
-    private PendencyDao pendencyDao;
+/*   private PendencyDao pendencyDao;
 
     private DatePickerDialog datePickerDialog;
     private TextInputEditText textInputEditText;
@@ -47,5 +47,5 @@ public class CreateActivity extends AppCompatActivity {
                 System.out.println("--------------- CLICK2 ---------------");
             }
         });
-    }
+    }*/
 }

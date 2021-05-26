@@ -25,44 +25,39 @@ public class Pendency {
         return id;
     }
 
-    public Pendency setId(int id) {
+    public void setId(int id) {
         this.id = id;
-        return this;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public Pendency setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
-        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public Pendency setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
-        return this;
     }
 
     public Date getCompletionDate() {
         return completionDate;
     }
 
-    public Pendency setCompletionDate(Date completionDate) {
+    public void setCompletionDate(Date completionDate) {
         this.completionDate = completionDate;
-        return this;
     }
 
     public String getPriority() {
         return priority;
     }
 
-    public Pendency setPriority(String priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
-        return this;
     }
 }
