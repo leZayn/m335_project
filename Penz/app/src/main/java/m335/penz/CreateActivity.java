@@ -11,7 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
+import m335.penz.persistence.PendencyDao;
+
 public class CreateActivity extends AppCompatActivity {
+
+    private PendencyDao pendencyDao;
+
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
 
