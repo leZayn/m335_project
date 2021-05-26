@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Penzi</string>
+    <string name="no_pending">Keine Pendenzen</string>
     <string name="label_title">Titel</string>
     <string name="label_description">Beschreibung</string>
+    <string name="label_date">dd.mm.yyyy</string>
+    <string name="title_date">Erledigungsdatum</string>
+    <string name="helpertext_lettercount">"? / ?"</string>
 </resources>
