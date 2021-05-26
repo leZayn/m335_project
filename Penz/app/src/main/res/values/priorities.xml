@@ -2,5 +2,5 @@
 <resources>
     <string name="high">Hoch</string>
     <string name="standard">Normal</string>
-    <string name="low">Nieddrig</string>
+    <string name="low">Niedrig</string>
 </resources>

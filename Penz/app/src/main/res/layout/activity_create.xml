@@ -9,18 +9,22 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tF_titel"
         android:layout_width="293dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="250dp"
         android:alpha="0.4"
         android:background="#FFFFFF"
         android:hint="@string/label_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tE_titel"
             android:layout_width="293dp"
-            android:layout_height="47dp"
+            android:layout_height="match_parent"
             android:background="#FFFFFF"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -28,52 +32,98 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tF_beschreibung"
         android:layout_width="293dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="72dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
         android:alpha="0.4"
         android:hint="@string/label_description"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tF_titel">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tE_beschreibung"
             android:layout_width="293dp"
-            android:layout_height="47dp"
+            android:layout_height="match_parent"
             android:background="#FFFFFF"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <TextView
         android:id="@+id/tV_erledigungsdatum"
         android:layout_width="152dp"
         android:layout_height="25dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="21dp"
-        android:text="Erledigungsdatum"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/title_date"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tF_beschreibung" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/btn_datePicker"
+        android:id="@+id/tF_datePicker"
         style="?android:spinnerStyle"
         android:layout_width="293dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="72dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
         android:alpha="0.4"
         android:hint="@string/label_date"
-        android:onClick=""
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tV_erledigungsdatum">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tE_datePicker"
             android:layout_width="293dp"
-            android:layout_height="47dp"
+            android:layout_height="match_parent"
             android:background="#FFFFFF"
             android:textSize="18sp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
+
+    <TextView
+        android:id="@+id/tV_priorität"
+        android:layout_width="152dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/label_priority"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tF_datePicker" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/menu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="293dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:hint="@string/label_priority"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tV_priorität">
+
+        <AutoCompleteTextView
+            android:id="@+id/tF_prio_menu"
+            android:layout_width="293dp"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="?android:attr/textCheckMark"
+        tools:layout_editor_absoluteX="317dp"
+        tools:layout_editor_absoluteY="625dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

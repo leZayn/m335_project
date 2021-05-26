@@ -5,5 +5,10 @@
     <string name="label_description">Beschreibung</string>
     <string name="label_date">dd.mm.yyyy</string>
     <string name="title_date">Erledigungsdatum</string>
+    <string name="title_priority">Priorität</string>
     <string name="helpertext_lettercount">"? / ?"</string>
+    <string name="label_priority">Priorität</string>
+    <string name="priority_low">Niedrig</string>
+    <string name="priority_normal">Normal</string>
+    <string name="priority_high">Hoch</string>
 </resources>
