@@ -78,8 +78,8 @@ public class CreateActivity extends AppCompatActivity {
     }
 
 
-    private LocalDate formatHeaderTextToDate(String headerText){
-        if(headerText.length() == 0){
+    private LocalDate formatHeaderTextToDate(String headerText) {
+        if (headerText.length() == 0) {
             return null;
         }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
@@ -108,21 +108,21 @@ public class CreateActivity extends AppCompatActivity {
     private void savePendency() {
         Pendency pendency = new Pendency();
         pendency.setTitle(titel.getText().toString());
-        if(textInputEditTextCalendar.getText().toString().length() > 0)
+        if (textInputEditTextCalendar.getText().toString().length() > 0)
             pendency.setCompletionDate(LocalDate.parse(textInputEditTextCalendar.getText().toString()));
-         pendency.setDescription(description.getText().toString());
-         pendency.setPriority(1);
-         pendencyDao.insert(pendency);
-    }
+        pendency.setDescription(description.getText().toString());
+        pendency.setPriority(getPriorityAsInt(autoCompleteTextView));
+        pendencyDao.insert(pendency);
     }
 
     private int getPriorityAsInt(AutoCompleteTextView autoCompleteTextView) {
-        if (autoCompleteTextView.getText().equals("Niedrig")) {
+        if (autoCompleteTextView.getText().toString().equals(getString(R.string.low))) {
             return 1;
-        } else if (autoCompleteTextView.getText().equals("Normal")) {
+        } else if (autoCompleteTextView.getText().toString().equals(getString(R.string.standard))) {
             return 2;
         } else {
             return 3;
         }
-        
+
+    }
 }
