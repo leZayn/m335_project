@@ -18,11 +18,8 @@ public class PendencyViewHolder extends RecyclerView.ViewHolder {
 
     private CardView cardView;
 
-    private View itemView;
-
     public PendencyViewHolder(@NonNull View itemView) {
         super(itemView);
-        this.itemView = itemView;
         titel = itemView.findViewById(R.id.titel);
         completionDate = itemView.findViewById(R.id.completiondate);
         priority = itemView.findViewById(R.id.priority);
@@ -43,9 +40,5 @@ public class PendencyViewHolder extends RecyclerView.ViewHolder {
 
     public TextView getPriority() {
         return priority;
-    }
-
-    public void setBackgroundColor(int color){
-        itemView.setBackgroundColor(color);
     }
 }

@@ -23,8 +23,6 @@ public class Pendency implements Comparable{
 
     private int priority;
 
-
-
     public int getId() {
         return id;
     }
