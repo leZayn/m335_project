@@ -26,8 +26,14 @@ import m335.penz.model.Pendency;
 import m335.penz.persistence.AppDatabase;
 import m335.penz.persistence.PendencyDao;
 
-
+/**
+ * @author Severin Baur
+ * @author Phearum Svay
+ *
+ * This class is responsible for the functionality of {@link R.layout.activity_create}
+ */
 public class CreateActivity extends AppCompatActivity {
+
 
     private TextInputEditText textInputEditTextCalendar;
     private AutoCompleteTextView autoCompleteTextView;
@@ -38,7 +44,16 @@ public class CreateActivity extends AppCompatActivity {
     private TextInputEditText description;
     private PendencyDao pendencyDao;
 
-
+    /**
+     * onCreate creates the view with the functionalities
+     * 1. Initialize elements
+     * 2. Initialize "repository"
+     * 3. Setup Date-Picker
+     * 4. Setup Priority-Picker
+     * 5. Setup Save-Button
+     * 6. Save Pendenz
+     * @param savedInstanceState
+     */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +66,11 @@ public class CreateActivity extends AppCompatActivity {
         setupSaveButton();
     }
 
+    /**
+     * setupPriorityPick sets the prioritiy-picker up
+     * 1. Initialize options
+     * 2. Change the text when priority is chosen
+     */
     private void setupPriorityPick() {
         String[] option = {getString(R.string.low), getString(R.string.standard), getString(R.string.high)};
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.priority_item, option);
@@ -58,6 +78,11 @@ public class CreateActivity extends AppCompatActivity {
         autoCompleteTextView.setAdapter(arrayAdapter);
     }
 
+    /**
+     * setupDatePick sets the date-picker up
+     * 1. Create the calendar and show it
+     * 2. Change the text when the date is picked
+     */
     private void setupDatePick() {
         textInputEditTextCalendar.setInputType(InputType.TYPE_NULL);
         textInputEditTextCalendar.setOnClickListener(view -> {
@@ -71,7 +96,14 @@ public class CreateActivity extends AppCompatActivity {
         });
     }
 
-
+    /**
+     * formatHeaderTextToDote formats the header text of the date picker to "date"
+     * 1. Parse the header text into "MMM dd, yyyy"-format
+     * 2. Format the date into "dd.MM.yyyy"-format
+     * 3. Return the date "selectedDate"
+     * @param headerText
+     * @return selectedDate
+     */
     private String formatHeaderTextToDate(String headerText) {
         if (headerText.length() == 0) {
             return null;
@@ -80,16 +112,16 @@ public class CreateActivity extends AppCompatActivity {
         DateFormat finalFormatter = new SimpleDateFormat("dd.MM.yyyy");
         String selectedDate = null;
         try {
-            System.out.println("HEADER TEXT: " + headerText);
-            System.out.println("DATE1: " + finalFormatter.format(formatter1.parse(headerText)));
             selectedDate = finalFormatter.format(formatter1.parse(headerText));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println(selectedDate);
         return selectedDate;
     }
 
+    /**
+     * setUpSaveButton executes "savePendency()"
+     */
     private void setupSaveButton() {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +131,9 @@ public class CreateActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * findItems initializes all elements
+     */
     private void findItems() {
         textInputEditTextCalendar = (TextInputEditText) findViewById(R.id.tE_datePicker);
         autoCompleteTextView = findViewById(R.id.tV_prio_menu);
@@ -107,6 +142,13 @@ public class CreateActivity extends AppCompatActivity {
         description = findViewById(R.id.tE_beschreibung);
     }
 
+    /**
+     * savePendency puts all data into a pendency object
+     * 1. Set & get title
+     * 2. Set & get date
+     * 3. Set & get description
+     * 4. Set & get priority
+     */
     private void savePendency() {
         if(validateTitle()){
             Pendency pendency = new Pendency();
@@ -120,6 +162,11 @@ public class CreateActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * getPriorityAsInt converts the string priority to a certain int
+     * @param autoCompleteTextView
+     * @return
+     */
     private int getPriorityAsInt(AutoCompleteTextView autoCompleteTextView) {
         if (autoCompleteTextView.getText().toString().equals(getString(R.string.low))) {
             return 1;
@@ -131,6 +178,10 @@ public class CreateActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * validateTitle validates if the pendenz has a title
+     * @return boolean
+     */
     private boolean validateTitle() {
         textInputLayoutTitel = (TextInputLayout) findViewById(R.id.tF_titel);
         System.out.println("TITEL TEXT: " + titel.getText());
