@@ -1,4 +1,4 @@
-package m335.penz;
+package m335.penz.activity;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -21,6 +21,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
+import m335.penz.R;
 import m335.penz.model.Pendency;
 import m335.penz.persistence.AppDatabase;
 import m335.penz.persistence.PendencyDao;
@@ -29,10 +30,9 @@ import m335.penz.persistence.PendencyDao;
  * @author Severin Baur
  * @author Phearum Svay
  *
- * This class is responsible for the functionality of {@link R.layout.activity_create}
+ * This class, CreateActivity, is responsible for the functionality of {@link R.layout.activity_create}
  */
 public class CreateActivity extends AppCompatActivity {
-
 
     private TextInputEditText textInputEditTextCalendar;
     private AutoCompleteTextView autoCompleteTextView;

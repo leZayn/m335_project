@@ -1,7 +1,6 @@
-package m335.penz;
+package m335.penz.pendency;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +8,19 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
+import m335.penz.R;
 import m335.penz.model.Pendency;
 
+/**
+ * @author Severin Baur
+ * @author Phearum Svay
+ *
+ * This class, MainActivity, is responsible for the functionality of {@link R.layout.activity_create}
+ */
 public class PendencyAdapter extends RecyclerView.Adapter<PendencyViewHolder> {
 
     private List<Pendency> pendencies;
