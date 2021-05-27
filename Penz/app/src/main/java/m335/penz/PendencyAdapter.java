@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,11 +40,10 @@ public class PendencyAdapter extends RecyclerView.Adapter<PendencyViewHolder> {
     public void onBindViewHolder(@NonNull PendencyViewHolder holder, int position) {
     holder.getTitel().setText(pendencies.get(position).getTitle());
     if(pendencies.get(position).getCompletionDate() != null){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        holder.getCompletionDate().setText(simpleDateFormat.format(pendencies.get(position).getCompletionDate()));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        holder.getCompletionDate().setText(pendencies.get(position).getCompletionDate().format(formatter));
         if(pendencies.get(position).getCompletionDate().isBefore(LocalDate.now())) {
             holder.getCompletionDate().setTextColor(context.getColor(R.color.error));
-            //holder.getCompletionDate().fill
         }
     }
         setBackgroundColor(holder, pendencies.get(position));
