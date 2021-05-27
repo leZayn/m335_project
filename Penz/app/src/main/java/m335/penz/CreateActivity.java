@@ -72,6 +72,9 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     private LocalDate formatHeaderTextToDate(String headerText){
+        if(headerText.length() == 0){
+            return null;
+        }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
         LocalDate localDate = LocalDate.parse(headerText, formatter);
         System.out.println(localDate);
@@ -97,8 +100,9 @@ public class CreateActivity extends AppCompatActivity {
 
     private void savePendency(){
         Pendency pendency = new Pendency();
-         pendency.setTitle(titel.getText().toString());
-         pendency.setCompletionDate(LocalDate.parse(textInputEditTextCalendar.getText().toString()));
+        pendency.setTitle(titel.getText().toString());
+        if(textInputEditTextCalendar.getText().toString().length() > 0)
+            pendency.setCompletionDate(LocalDate.parse(textInputEditTextCalendar.getText().toString()));
          pendency.setDescription(description.getText().toString());
          pendency.setPriority(1);
          pendencyDao.insert(pendency);
