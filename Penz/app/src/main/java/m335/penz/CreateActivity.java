@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
@@ -51,14 +52,19 @@ public class CreateActivity extends AppCompatActivity {
         setupSaveButton();
     }
 
-    private void setupPriorityPick(){
+    private void setupPriorityPick() {
         String[] option = {getString(R.string.low), getString(R.string.standard), getString(R.string.high)};
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.priority_item, option);
-        autoCompleteTextView.setText(arrayAdapter.getItem(0).toString(), false);
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                autoCompleteTextView.setText(arrayAdapter.getItem((int) l).toString(), false);
+            }
+        });
         autoCompleteTextView.setAdapter(arrayAdapter);
     }
 
-    private void setupDatePick(){
+    private void setupDatePick() {
         textInputEditTextCalendar.setInputType(InputType.TYPE_NULL);
         textInputEditTextCalendar.setOnClickListener(view -> {
             MaterialDatePicker datePicker =
@@ -71,8 +77,9 @@ public class CreateActivity extends AppCompatActivity {
         });
     }
 
-    private LocalDate formatHeaderTextToDate(String headerText){
-        if(headerText.length() == 0){
+
+    private LocalDate formatHeaderTextToDate(String headerText) {
+        if (headerText.length() == 0) {
             return null;
         }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
@@ -81,30 +88,41 @@ public class CreateActivity extends AppCompatActivity {
         return localDate;
     }
 
-    private void setupSaveButton(){
-        saveButton.setOnClickListener(new View.OnClickListener(){
+    private void setupSaveButton() {
+        saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 savePendency();
             }
         });
     }
 
-    private void findItems(){
-        textInputEditTextCalendar = (TextInputEditText)findViewById(R.id.tE_datePicker);
+    private void findItems() {
+        textInputEditTextCalendar = (TextInputEditText) findViewById(R.id.tE_datePicker);
         autoCompleteTextView = findViewById(R.id.tV_prio_menu);
         saveButton = findViewById(R.id.btn_submit);
         titel = findViewById(R.id.tE_titel);
         description = findViewById(R.id.tE_beschreibung);
     }
 
-    private void savePendency(){
+    private void savePendency() {
         Pendency pendency = new Pendency();
         pendency.setTitle(titel.getText().toString());
-        if(textInputEditTextCalendar.getText().toString().length() > 0)
+        if (textInputEditTextCalendar.getText().toString().length() > 0)
             pendency.setCompletionDate(LocalDate.parse(textInputEditTextCalendar.getText().toString()));
-         pendency.setDescription(description.getText().toString());
-         pendency.setPriority(1);
-         pendencyDao.insert(pendency);
+        pendency.setDescription(description.getText().toString());
+        pendency.setPriority(getPriorityAsInt(autoCompleteTextView));
+        pendencyDao.insert(pendency);
+    }
+
+    private int getPriorityAsInt(AutoCompleteTextView autoCompleteTextView) {
+        if (autoCompleteTextView.getText().toString().equals(getString(R.string.low))) {
+            return 1;
+        } else if (autoCompleteTextView.getText().toString().equals(getString(R.string.standard))) {
+            return 2;
+        } else {
+            return 3;
+        }
+
     }
 }
