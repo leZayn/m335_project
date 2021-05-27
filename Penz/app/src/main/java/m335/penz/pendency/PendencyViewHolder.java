@@ -41,4 +41,8 @@ public class PendencyViewHolder extends RecyclerView.ViewHolder {
     public TextView getPriority() {
         return priority;
     }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }
