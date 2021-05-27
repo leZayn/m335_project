@@ -14,4 +14,5 @@
     <color name="standard_priority">#FDF695</color>
     <color name="low_priority">#91FFB8</color>
     <color name="error">#FF0000</color>
+    <color name="design_dark_default_color_on_surface">@color/secondarycolor</color>
 </resources>
