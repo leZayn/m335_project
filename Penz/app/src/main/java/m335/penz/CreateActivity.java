@@ -1,5 +1,6 @@
 package m335.penz;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
@@ -33,7 +34,7 @@ public class CreateActivity extends AppCompatActivity {
     private TextInputEditText textInputEditTextCalendar;
     private AutoCompleteTextView autoCompleteTextView;
 
-    private TextInputLayout textInputLayout;
+    private TextInputLayout textInputLayoutTitel;
     private FloatingActionButton saveButton;
     private TextInputEditText titel;
     private TextInputEditText description;
@@ -106,13 +107,16 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     private void savePendency() {
-        Pendency pendency = new Pendency();
-        pendency.setTitle(titel.getText().toString());
-        if (textInputEditTextCalendar.getText().toString().length() > 0)
-            pendency.setCompletionDate(LocalDate.parse(textInputEditTextCalendar.getText().toString()));
-        pendency.setDescription(description.getText().toString());
-        pendency.setPriority(getPriorityAsInt(autoCompleteTextView));
-        pendencyDao.insert(pendency);
+        if(validateTitle()){
+            Pendency pendency = new Pendency();
+            pendency.setTitle(titel.getText().toString());
+            if (textInputEditTextCalendar.getText().toString().length() > 0)
+                pendency.setCompletionDate(LocalDate.parse(textInputEditTextCalendar.getText().toString()));
+            pendency.setDescription(description.getText().toString());
+            pendency.setPriority(getPriorityAsInt(autoCompleteTextView));
+            pendencyDao.insert(pendency);
+            finish();
+        }
     }
 
     private int getPriorityAsInt(AutoCompleteTextView autoCompleteTextView) {
@@ -124,5 +128,15 @@ public class CreateActivity extends AppCompatActivity {
             return 3;
         }
 
+    }
+
+    private boolean validateTitle() {
+        textInputLayoutTitel = (TextInputLayout) findViewById(R.id.tF_titel);
+        System.out.println("TITEL TEXT: " + titel.getText());
+        if(titel.getText().length() == 0){
+            textInputLayoutTitel.setError("Gib einen Titel an");
+            return false;
+        }
+        return true;
     }
 }

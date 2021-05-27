@@ -7,20 +7,24 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/textInputLayout.SecondaryColorLabel"
         android:id="@+id/tF_titel"
         android:layout_width="293dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="250dp"
-        android:alpha="0.4"
+        android:layout_marginBottom="300dp"
         android:background="#FFFFFF"
         android:hint="@string/label_title"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/secondarycolor"
+        app:hintTextColor="@color/design_dark_default_color_on_surface"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="20">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tE_titel"
@@ -28,23 +32,26 @@
             android:layout_height="match_parent"
             android:background="#FFFFFF"
             android:textColorHint="@color/secondarycolor"
-
-            android:textSize="16sp" />
+            android:textSize="18sp"
+            android:maxLength="20"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/textInputLayout.SecondaryColorLabel"
         android:id="@+id/tF_beschreibung"
         android:layout_width="293dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
-        android:alpha="0.4"
         android:hint="@string/label_description"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/secondarycolor"
+        app:hintTextColor="@color/design_dark_default_color_on_surface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tF_titel">
+        app:layout_constraintTop_toBottomOf="@+id/tF_titel"
+        app:counterEnabled="true"
+        app:counterMaxLength="100">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tE_beschreibung"
@@ -52,7 +59,7 @@
             android:layout_height="match_parent"
             android:background="#FFFFFF"
             android:textSize="18sp"
-            />
+            android:maxLength="100"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -62,9 +69,11 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
         android:text="@string/title_date"
+        android:textColorHint="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tF_beschreibung" />
+        app:layout_constraintTop_toBottomOf="@+id/tF_beschreibung"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tF_datePicker"
@@ -73,8 +82,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:alpha="0.4"
         android:hint="@string/label_date"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/secondarycolor"
+        app:hintTextColor="@color/design_dark_default_color_on_surface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tV_erledigungsdatum">
@@ -84,7 +95,8 @@
             android:layout_width="293dp"
             android:layout_height="match_parent"
             android:background="#FFFFFF"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:maxLength="20"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,7 +107,9 @@
         android:layout_height="25dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
+        android:alpha="1"
         android:text="@string/label_priority"
+        android:textColorHint="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tF_datePicker" />
@@ -107,9 +121,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/secondarycolor"
+        app:hintTextColor="@color/design_dark_default_color_on_surface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tV_priorität">
+        app:layout_constraintTop_toBottomOf="@+id/tV_priorität"
+        app:errorEnabled="true">
 
         <AutoCompleteTextView
             android:id="@+id/tV_prio_menu"
@@ -117,7 +135,8 @@
             android:layout_height="match_parent"
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
-            android:inputType="none" />
+            android:inputType="none"
+            android:text="@string/standard"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
