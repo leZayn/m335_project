@@ -20,6 +20,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import m335.penz.R;
 import m335.penz.model.Pendency;
@@ -163,8 +164,10 @@ public class CreateActivity extends AppCompatActivity {
         if(validateTitle()){
             Pendency pendency = new Pendency();
             pendency.setTitle(titel.getText().toString());
-            if (textInputEditTextCalendar.getText().toString().length() > 0)
-                pendency.setCompletionDate(LocalDate.parse(textInputEditTextCalendar.getText().toString()));
+            if (textInputEditTextCalendar.getText().toString().length() > 0) {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+                pendency.setCompletionDate(LocalDate.parse(textInputEditTextCalendar.getText().toString(), formatter));
+            }
             pendency.setDescription(description.getText().toString());
             pendency.setPriority(getPriorityAsInt(autoCompleteTextView));
             pendencyDao.insert(pendency);
