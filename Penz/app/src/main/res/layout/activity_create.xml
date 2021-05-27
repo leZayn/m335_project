@@ -6,6 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/activitytitel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:text="Neue Pendenz"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:background="@color/primarycolor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/outline_close_black_24dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tF_titel"
         android:layout_width="293dp"
@@ -15,25 +59,25 @@
         android:layout_marginBottom="300dp"
         android:background="#FFFFFF"
         android:hint="@string/label_title"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/hintcolor"
         app:boxStrokeColor="@color/secondarycolor"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        app:errorEnabled="true"
         app:hintTextColor="@color/design_dark_default_color_on_surface"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:errorEnabled="true"
-        app:counterEnabled="true"
-        app:counterMaxLength="20">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tE_titel"
             android:layout_width="293dp"
             android:layout_height="match_parent"
             android:background="#FFFFFF"
+            android:maxLength="20"
             android:textColorHint="@color/secondarycolor"
-            android:textSize="18sp"
-            android:maxLength="20"/>
+            android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -44,22 +88,22 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
         android:hint="@string/label_description"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/hintcolor"
         app:boxStrokeColor="@color/secondarycolor"
+        app:counterEnabled="true"
+        app:counterMaxLength="100"
         app:hintTextColor="@color/design_dark_default_color_on_surface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tF_titel"
-        app:counterEnabled="true"
-        app:counterMaxLength="100">
+        app:layout_constraintTop_toBottomOf="@+id/tF_titel">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tE_beschreibung"
             android:layout_width="293dp"
             android:layout_height="match_parent"
             android:background="#FFFFFF"
-            android:textSize="18sp"
-            android:maxLength="100"/>
+            android:maxLength="100"
+            android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -83,7 +127,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:hint="@string/label_date"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/hintcolor"
         app:boxStrokeColor="@color/secondarycolor"
         app:hintTextColor="@color/design_dark_default_color_on_surface"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,8 +139,8 @@
             android:layout_width="293dp"
             android:layout_height="match_parent"
             android:background="#FFFFFF"
-            android:textSize="18sp"
-            android:maxLength="20"/>
+            android:maxLength="20"
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,11 +167,11 @@
         android:layout_marginEnd="50dp"
         android:textColorHint="@color/black"
         app:boxStrokeColor="@color/secondarycolor"
+        app:errorEnabled="true"
         app:hintTextColor="@color/design_dark_default_color_on_surface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tV_priorität"
-        app:errorEnabled="true">
+        app:layout_constraintTop_toBottomOf="@+id/tV_priorität">
 
         <AutoCompleteTextView
             android:id="@+id/tV_prio_menu"
@@ -136,7 +180,7 @@
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:inputType="none"
-            android:text="@string/standard"/>
+            android:text="@string/standard" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -148,7 +192,7 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="?android:attr/textCheckMark" />
+        app:srcCompat="@drawable/outline_done_black_24dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

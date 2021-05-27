@@ -4,9 +4,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.ImageButton;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +20,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import m335.penz.model.Pendency;
 import m335.penz.persistence.AppDatabase;
@@ -37,7 +36,7 @@ public class CreateActivity extends AppCompatActivity {
 
     private TextInputEditText textInputEditTextCalendar;
     private AutoCompleteTextView autoCompleteTextView;
-
+    private ImageButton closeButton;
     private TextInputLayout textInputLayoutTitel;
     private FloatingActionButton saveButton;
     private TextInputEditText titel;
@@ -61,9 +60,19 @@ public class CreateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create);
         findItems();
         pendencyDao = AppDatabase.getAppDb(getApplicationContext()).getPendencyDao();
+        setupCloseButton();
         setupDatePick();
         setupPriorityPick();
         setupSaveButton();
+    }
+
+    private void setupCloseButton(){
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     /**
@@ -137,6 +146,7 @@ public class CreateActivity extends AppCompatActivity {
     private void findItems() {
         textInputEditTextCalendar = (TextInputEditText) findViewById(R.id.tE_datePicker);
         autoCompleteTextView = findViewById(R.id.tV_prio_menu);
+        closeButton = findViewById(R.id.btn_close);
         saveButton = findViewById(R.id.btn_submit);
         titel = findViewById(R.id.tE_titel);
         description = findViewById(R.id.tE_beschreibung);
@@ -175,7 +185,6 @@ public class CreateActivity extends AppCompatActivity {
         } else {
             return 3;
         }
-
     }
 
     /**
