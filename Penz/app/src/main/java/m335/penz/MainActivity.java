@@ -63,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        printPendencies();
+    }
+
     private void findItems(){
         createButton =  findViewById(R.id.createButton);
         smiley = findViewById(R.id.img_smiley);
@@ -72,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
     private void openCreateActivity(){
         Intent intent = new Intent(this, CreateActivity.class);
         startActivity(intent);
-        finish();
     }
 
 }
