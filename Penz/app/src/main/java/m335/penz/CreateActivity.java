@@ -1,6 +1,5 @@
 package m335.penz;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
@@ -13,16 +12,15 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
-import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 import m335.penz.model.Pendency;
 import m335.penz.persistence.AppDatabase;
@@ -56,12 +54,7 @@ public class CreateActivity extends AppCompatActivity {
     private void setupPriorityPick() {
         String[] option = {getString(R.string.low), getString(R.string.standard), getString(R.string.high)};
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.priority_item, option);
-        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                autoCompleteTextView.setText(arrayAdapter.getItem((int) l).toString(), false);
-            }
-        });
+        autoCompleteTextView.setOnItemClickListener((adapterView, view, i, l) -> autoCompleteTextView.setText(arrayAdapter.getItem((int) l).toString(), false));
         autoCompleteTextView.setAdapter(arrayAdapter);
     }
 
@@ -73,20 +66,28 @@ public class CreateActivity extends AppCompatActivity {
                             .setTitleText("Select date")
                             .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
                             .build();
-            datePicker.addOnPositiveButtonClickListener(selection -> textInputEditTextCalendar.setText(formatHeaderTextToDate(datePicker.getHeaderText()).toString()));
+            datePicker.addOnPositiveButtonClickListener(selection -> textInputEditTextCalendar.setText(formatHeaderTextToDate(datePicker.getHeaderText())));
             datePicker.show(getSupportFragmentManager(), "tag");
         });
     }
 
 
-    private LocalDate formatHeaderTextToDate(String headerText) {
+    private String formatHeaderTextToDate(String headerText) {
         if (headerText.length() == 0) {
             return null;
         }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
-        LocalDate localDate = LocalDate.parse(headerText, formatter);
-        System.out.println(localDate);
-        return localDate;
+        DateFormat formatter1 = new SimpleDateFormat("MMM dd, yyyy");
+        DateFormat finalFormatter = new SimpleDateFormat("dd.MM.yyyy");
+        String selectedDate = null;
+        try {
+            System.out.println("HEADER TEXT: " + headerText);
+            System.out.println("DATE1: " + finalFormatter.format(formatter1.parse(headerText)));
+            selectedDate = finalFormatter.format(formatter1.parse(headerText));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(selectedDate);
+        return selectedDate;
     }
 
     private void setupSaveButton() {
