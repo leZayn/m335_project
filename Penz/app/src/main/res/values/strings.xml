@@ -11,9 +11,4 @@
     <string name="high">Hoch</string>
     <string name="standard">Normal</string>
     <string name="low">Niedrig</string>
-    <string-array name="priorities">
-        <item>Niedrig</item>
-        <item>Normal</item>
-        <item>Hoch</item>
-    </string-array>
 </resources>
