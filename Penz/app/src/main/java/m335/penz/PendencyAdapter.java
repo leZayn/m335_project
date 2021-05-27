@@ -70,13 +70,13 @@ public class PendencyAdapter extends RecyclerView.Adapter<PendencyViewHolder> {
     private void setBackgroundColor(PendencyViewHolder pendencyViewHolder, Pendency pendency){
         switch (pendency.getPriority()){
             case 1:
-                pendencyViewHolder.setBackgroundColor(context.getColor(R.color.low_priority));
+                pendencyViewHolder.setCardColor(context.getColor(R.color.low_priority));
                 break;
             case 2:
-                pendencyViewHolder.setBackgroundColor(context.getColor(R.color.standard_priority));
+                pendencyViewHolder.setCardColor(context.getColor(R.color.standard_priority));
                 break;
             case 3:
-                pendencyViewHolder.setBackgroundColor(context.getColor(R.color.high_priority));
+                pendencyViewHolder.setCardColor(context.getColor(R.color.high_priority));
                 break;
         }
     }

@@ -68,12 +68,22 @@ public class Pendency implements Comparable{
     @Override
     public int compareTo(Object o) {
         Pendency other = (Pendency) o;
-        if(this.priority > other.priority || (this.priority == other.priority && this.completionDate.isBefore(other.completionDate))){
-            return 1;
-        }else if (this.priority == this.priority && this.completionDate == other.completionDate){
-            return 0;
-        }else{
+        if (this.priority > other.priority) {
             return -1;
+        } else if (this.priority == other.priority) {
+            if (this.completionDate == null) {
+                return 1;
+            } else if (other.completionDate == null) {
+                return -1;
+            } else if (this.completionDate.isBefore(other.completionDate)) {
+                return -1;
+            } else if(this.completionDate.isAfter(other.completionDate)){
+                return 1;
+            }else{
+                return 0;
+            }
+        } else {
+            return 1;
         }
     }
 }
