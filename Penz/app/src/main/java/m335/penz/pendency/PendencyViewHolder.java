@@ -1,4 +1,4 @@
-package m335.penz;
+package m335.penz.pendency;
 
 import android.view.View;
 import android.widget.TextView;
@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import m335.penz.R;
 
 public class PendencyViewHolder extends RecyclerView.ViewHolder {
 
