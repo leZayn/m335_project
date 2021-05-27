@@ -9,6 +9,14 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
+import m335.penz.R;
+
+/**
+ * @author Severin Baur
+ * @author Phearum Svay
+ *
+ * This class, Pendency, is responsible for representation of each pendency
+ */
 @Entity
 public class Pendency implements Comparable{
     @PrimaryKey(autoGenerate = true)

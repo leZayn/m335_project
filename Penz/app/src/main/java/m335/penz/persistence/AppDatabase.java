@@ -21,6 +21,11 @@ public abstract class AppDatabase extends RoomDatabase {
     private static final String DB_NAME = "PenzDb";
     private static AppDatabase appDb;
 
+    /**
+     *
+     * @param context
+     * @return
+     */
     public static AppDatabase getAppDb(Context context){
         if(appDb == null){
             appDb = Room.databaseBuilder(context, AppDatabase.class, DB_NAME)

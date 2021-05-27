@@ -60,9 +60,10 @@
         android:background="#FFFFFF"
         android:hint="@string/label_title"
         android:textColorHint="@color/hintcolor"
+        app:hintAnimationEnabled="true"
         app:boxStrokeColor="@color/secondarycolor"
         app:counterEnabled="true"
-        app:counterMaxLength="20"
+        app:counterMaxLength="50"
         app:errorEnabled="true"
         app:hintTextColor="@color/design_dark_default_color_on_surface"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,10 +73,10 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tE_titel"
-            android:layout_width="293dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#FFFFFF"
-            android:maxLength="20"
+            android:maxLength="50"
             android:textColorHint="@color/secondarycolor"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -89,9 +90,10 @@
         android:layout_marginEnd="50dp"
         android:hint="@string/label_description"
         android:textColorHint="@color/hintcolor"
+        app:hintAnimationEnabled="true"
         app:boxStrokeColor="@color/secondarycolor"
         app:counterEnabled="true"
-        app:counterMaxLength="100"
+        app:counterMaxLength="500"
         app:hintTextColor="@color/design_dark_default_color_on_surface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +104,7 @@
             android:layout_width="293dp"
             android:layout_height="match_parent"
             android:background="#FFFFFF"
-            android:maxLength="100"
+            android:maxLength="500"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
 

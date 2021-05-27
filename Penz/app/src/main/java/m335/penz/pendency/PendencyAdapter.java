@@ -31,6 +31,12 @@ public class PendencyAdapter extends RecyclerView.Adapter<PendencyViewHolder> {
         this.pendencies = pendencies;
     }
 
+    /**
+     *
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @NonNull
     @Override
     public PendencyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,6 +45,11 @@ public class PendencyAdapter extends RecyclerView.Adapter<PendencyViewHolder> {
         return new PendencyViewHolder(view);
     }
 
+    /**
+     *
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull PendencyViewHolder holder, int position) {
     holder.getTitel().setText(pendencies.get(position).getTitle());
