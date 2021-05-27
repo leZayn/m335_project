@@ -44,5 +44,8 @@ public class PendencyViewHolder extends RecyclerView.ViewHolder {
 <<<<<<< Updated upstream
 =======
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
